@@ -16,7 +16,10 @@ class Expense(db.Model):
     description = db.Column(db.String(200), nullable=True)
     date = db.Column(db.Date, nullable=False)
 
-db.create_all()
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+        app.run(debug=True)
 
 @app.route('/')
 def index():
@@ -60,5 +63,3 @@ def chart():
 
     return render_template('chart.html', plot_url=plot_url)
 
-if __name__ == '__main__':
-    app.run(debug=True)
