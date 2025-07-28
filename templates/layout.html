@@ -2,6 +2,20 @@
 
 <html lang="en">
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 </head>
+
+<body>
+    <div class="container">
+        <h1>Personal Finance Tracker</h1>
+        <nav>
+            <a href="/">Home</a> | <a href="/chart">View Chart</a>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
 </html>
