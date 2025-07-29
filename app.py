@@ -31,7 +31,12 @@ def add_expense():
         amount = request.form['amount']
         category = request.form['category']
         description = request.form['description']
-        date = request.form['date']
+        date_str = request.form['date'] # from HTML input
+        try:
+            date = datetime.strptime(date_str, '%Y-%m-%d').date()
+        except ValueError:
+            return "Invalid date format", 400
+        
         new_expense = Expense(amount=amount, category=category, description=description, date=date)
         db.session.add(new_expense)
         db.session.commit()
