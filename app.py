@@ -18,7 +18,7 @@ class Expense(db.Model):
     description = db.Column(db.String(200), nullable=True)
     date = db.Column(db.Date, nullable=False)
 
-@app.before_first_request
+
 def create_tables():
     db.create_all()
 
