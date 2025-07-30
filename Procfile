@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn personal-finance-tracker:app
